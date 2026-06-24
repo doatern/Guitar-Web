@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guitar Repair & Restoration Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🎸 GuitarFix</div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Professional Guitar Repair & Restoration</h1>
+            <p>Expert craftsmanship for all your guitar needs</p>
+            <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Get in Touch</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Setup & Maintenance</h3>
+                <p>Professional setup, string replacement, cleaning, and general maintenance to keep your guitar in top condition.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🪛</div>
+                <h3>Repairs</h3>
+                <p>From fret leveling to bridge replacement, we handle all types of structural repairs with precision.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Restoration</h3>
+                <p>Breathe new life into vintage and damaged guitars with our expert restoration services.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Custom Work</h3>
+                <p>Custom modifications, finishing, and upgrades tailored to your specifications.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Diagnostics</h3>
+                <p>Comprehensive evaluation of your instrument to identify issues and recommend solutions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎵</div>
+                <h3>Electronics</h3>
+                <p>Guitar electronics repair and upgrades including pickups, wiring, and hardware installation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>With over a decade of experience in guitar repair and restoration, we pride ourselves on delivering exceptional craftsmanship and personalized service. Our passion for guitars drives us to provide the highest quality work, whether you're a beginner or a professional musician.</p>
+                <p>We work with all types of guitars—acoustic, electric, bass, and specialty instruments—treating each one with the care it deserves.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>Guitars Serviced</p>
+                </div>
+                <div class="stat">
+                    <h3>10+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat">
+                    <h3>100%</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <div class="contact-content">
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Describe your guitar issue or inquiry" rows="5" required></textarea>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <div class="info-item">
+                    <h3>📞 Phone</h3>
+                    <p>(555) 123-4567</p>
+                </div>
+                <div class="info-item">
+                    <h3>📍 Location</h3>
+                    <p>123 Music Street<br>Guitar City, ST 12345</p>
+                </div>
+                <div class="info-item">
+                    <h3>🕒 Hours</h3>
+                    <p>Mon-Fri: 10am - 6pm<br>Sat: 10am - 4pm<br>Sun: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 GuitarFix. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
