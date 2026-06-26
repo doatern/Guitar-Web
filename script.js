@@ -1,3 +1,8 @@
+// Initialize EmailJS
+(function() {
+    emailjs.init("YOUR_PUBLIC_KEY_HERE");
+})();
+
 // Mobile Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
@@ -18,26 +23,62 @@ navLinks.forEach(link => {
     });
 });
 
-// Handle form submission
+// Handle form submission with email sending
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
         // Get form values
-        const inputs = contactForm.querySelectorAll('input, textarea');
-        const name = inputs[0].value;
-        const email = inputs[1].value;
-        const message = inputs[2].value;
+        const fromName = document.getElementById('from_name').value;
+        const fromEmail = document.getElementById('from_email').value;
+        const message = document.getElementById('message').value;
+        const statusMessage = document.getElementById('statusMessage');
+        const submitButton = contactForm.querySelector('.submit-button');
         
-        // Log form data (in a real application, you'd send this to a server)
-        console.log('Form submitted:', { name, email, message });
+        // Disable submit button
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
         
-        // Show success message
-        alert(`Thank you, ${name}! We'll get back to you at ${email} soon.`);
+        // Clear previous status message
+        statusMessage.classList.remove('success', 'error');
+        statusMessage.textContent = '';
         
-        // Reset form
-        contactForm.reset();
+        // EmailJS template parameters
+        const templateParams = {
+            to_email: 'doatern@gmail.com',
+            from_name: fromName,
+            from_email: fromEmail,
+            message: message
+        };
+        
+        // Send email using EmailJS
+        emailjs.send('service_YOUR_SERVICE_ID', 'template_YOUR_TEMPLATE_ID', templateParams)
+            .then((response) => {
+                console.log('Email sent successfully:', response.status, response.text);
+                
+                // Show success message
+                statusMessage.classList.add('success');
+                statusMessage.textContent = `Thank you, ${fromName}! Your message has been sent successfully.`;
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            })
+            .catch((error) => {
+                console.error('Failed to send email:', error);
+                
+                // Show error message
+                statusMessage.classList.add('error');
+                statusMessage.textContent = 'Failed to send message. Please try again or contact us directly.';
+                
+                // Reset button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            });
     });
 }
 
