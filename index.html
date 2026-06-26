@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guitar Repair & Restoration Services</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/build/index.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -12,9 +13,8 @@
         <div class="nav-container">
             <div class="logo">🎸 GuitarFix</div>
             <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="hamburger-text">☰</span>
+                <span class="hamburger-x">×</span>
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
@@ -76,7 +76,7 @@
         <h2>About</h2>
         <div class="about-content">
             <div class="about-text">
-                <p>I know how much your guitar means to you. Whether it’s a routine setup or a full restoration,
+                <p>I know how much your guitar means to you. Whether it's a routine setup or a full restoration,
                     I work directly with you to get your instrument playing perfectly for your unique style
                     My passion for guitars moyivates me to provide the highest quality work, whether you're a beginner or a professional musician.</p>
                 <p>I work with all types of guitars—acoustic, electric, bass, and specialty instruments—treating each one with the care it deserves.</p>
@@ -103,10 +103,11 @@
         <h2>Get in Touch</h2>
         <div class="contact-content">
             <form class="contact-form" id="contactForm">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Describe your guitar issue or inquiry" rows="5" required></textarea>
+                <input type="text" id="from_name" placeholder="Your Name" required>
+                <input type="email" id="from_email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Describe your guitar issue or inquiry" rows="5" required></textarea>
                 <button type="submit" class="submit-button">Send Message</button>
+                <div id="statusMessage" class="status-message"></div>
             </form>
             <div class="contact-info">
                 <div class="info-item">
