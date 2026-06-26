@@ -1,8 +1,3 @@
-// Initialize EmailJS
-(function() {
-    emailjs.init("YOUR_PUBLIC_KEY_HERE");
-})();
-
 // Mobile Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
@@ -45,41 +40,44 @@ if (contactForm) {
         statusMessage.classList.remove('success', 'error');
         statusMessage.textContent = '';
         
-        // EmailJS template parameters
-        const templateParams = {
-            to_email: 'doatern@gmail.com',
-            from_name: fromName,
-            from_email: fromEmail,
-            message: message
-        };
-        
-        // Send email using EmailJS
-        emailjs.send('service_YOUR_SERVICE_ID', 'template_YOUR_TEMPLATE_ID', templateParams)
-            .then((response) => {
-                console.log('Email sent successfully:', response.status, response.text);
-                
-                // Show success message
-                statusMessage.classList.add('success');
-                statusMessage.textContent = `Thank you, ${fromName}! Your message has been sent successfully.`;
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Reset button
-                submitButton.disabled = false;
-                submitButton.textContent = 'Send Message';
+        // Send email via FormSubmit service (no setup required)
+        fetch('https://formsubmit.co/ajax/doatern@gmail.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: fromName,
+                email: fromEmail,
+                message: message
             })
-            .catch((error) => {
-                console.error('Failed to send email:', error);
-                
-                // Show error message
-                statusMessage.classList.add('error');
-                statusMessage.textContent = 'Failed to send message. Please try again or contact us directly.';
-                
-                // Reset button
-                submitButton.disabled = false;
-                submitButton.textContent = 'Send Message';
-            });
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Email sent successfully:', data);
+            
+            // Show success message
+            statusMessage.classList.add('success');
+            statusMessage.textContent = `Thank you, ${fromName}! Your message has been sent successfully.`;
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Reset button
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+        })
+        .catch((error) => {
+            console.error('Failed to send email:', error);
+            
+            // Show error message
+            statusMessage.classList.add('error');
+            statusMessage.textContent = 'Failed to send message. Please try again or contact us directly.';
+            
+            // Reset button
+            submitButton.disabled = false;
+            submitButton.textContent = 'Send Message';
+        });
     });
 }
 
