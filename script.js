@@ -11,6 +11,7 @@ if (hamburger) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        console.log('Hamburger clicked, active:', hamburger.classList.contains('active'));
     });
 }
 
