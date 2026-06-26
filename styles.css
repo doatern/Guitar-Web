@@ -59,16 +59,28 @@ html {
 
 .hamburger {
     display: none;
-    flex-direction: column;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: white;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px 0;
-    transition: all 0.3s ease;
+.hamburger-text {
+    display: inline;
+}
+
+.hamburger-x {
+    display: none;
+}
+
+.hamburger.active .hamburger-text {
+    display: none;
+}
+
+.hamburger.active .hamburger-x {
+    display: inline;
 }
 
 /* Hero Section */
@@ -279,6 +291,34 @@ html {
     transform: translateY(-2px);
 }
 
+.submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.status-message {
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
+
+.status-message.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 .contact-info {
     display: grid;
     grid-template-columns: 1fr;
@@ -353,18 +393,6 @@ html {
 
     .nav-menu li {
         padding: 1rem;
-    }
-
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(-45deg) translate(-8px, 8px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(45deg) translate(-7px, -7px);
     }
 
     .hero-content h1 {
